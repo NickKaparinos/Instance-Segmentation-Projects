@@ -18,14 +18,6 @@ Deep Learning methodologies are able to do end-to-end object detection using Con
 
 ### Inference examples and comparison to Ground Truth
 
-||||
-|:---:|:---:|:---:|
-| Image &nbsp | Predictions | Ground Truth |
-
-
-
-
-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Predictions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ground Truth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 |:---------------------------:|:---:|:---:|
 
@@ -35,10 +27,67 @@ Deep Learning methodologies are able to do end-to-end object detection using Con
   <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_1_segmentation.jpg" width="32.9%" />
   <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_1_ground_truth_segmentation.jpg" width="32.9%" />
 </p>
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_2.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_2_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_2_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_3.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_3_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_3_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_4.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_4_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_4_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_5.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_5_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_5_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
 
 
 
 
 ## Balloon Instance Segmentation
 ### Training and Evaluation Learning Curve
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_learning_curve.jpg" width="49.7%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_validation_metrics.jpg" width="49.7%" />
+</p>
+
 ### Inference examples and comparison to Ground Truth
+
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Predictions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ground Truth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|:---------------------------:|:---:|:---:|
+
+
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_1.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_1_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_1_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
+
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_3.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_3_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_3_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_4.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_4_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_4_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_7.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_7_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_7_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_9.jpg" width="32.9%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_9_segmentation.jpg" width="32.9%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Balloon_image_9_ground_truth_segmentation.jpg" width="32.9%" />
+</p>
+
