@@ -1,13 +1,17 @@
+"""
+Instance-Segmentation-Projects
+Nick Kaparinos
+2021
+"""
+
 import copy
 import io
 from contextlib import redirect_stdout
-
-import numpy as np
 import pycocotools.mask as mask_util
-import torch
-import utils
 from pycocotools.coco import COCO
 from pycocotools.cocoeval import COCOeval
+import wandb
+from utilities import *
 
 
 class CocoEvaluator:
@@ -49,10 +53,12 @@ class CocoEvaluator:
         for coco_eval in self.coco_eval.values():
             coco_eval.accumulate()
 
-    def summarize(self):
+    def summarize(self, epoch):
         for iou_type, coco_eval in self.coco_eval.items():
             print(f"IoU metric: {iou_type}")
             coco_eval.summarize()
+            results_dict = {f'{iou_type}_mAP': coco_eval.stats[0], f'{iou_type}_mAR': coco_eval.stats[5]}
+            wandb.log(data={'Epoch': epoch, **results_dict})
 
     def prepare(self, predictions, iou_type):
         if iou_type == "bbox":
@@ -154,8 +160,8 @@ def convert_to_xywh(boxes):
 
 
 def merge(img_ids, eval_imgs):
-    all_img_ids = utils.all_gather(img_ids)
-    all_eval_imgs = utils.all_gather(eval_imgs)
+    all_img_ids = all_gather(img_ids)
+    all_eval_imgs = all_gather(eval_imgs)
 
     merged_img_ids = []
     for p in all_img_ids:

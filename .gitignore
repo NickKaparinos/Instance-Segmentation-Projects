@@ -5,6 +5,7 @@ logs/
 wandb/
 balloon/
 logs/
-PennFudanPed
+PennFudanPed/
+README.md
 code_backup.py
 *.jpg

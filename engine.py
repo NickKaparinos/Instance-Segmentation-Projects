@@ -1,19 +1,25 @@
+"""
+Instance-Segmentation-Projects
+Nick Kaparinos
+2021
+"""
+
 import math
 import sys
-import time
-
-import wandb
-import torch
 import torchvision.models.detection.mask_rcnn
-import utils
+import wandb
 from coco_eval import CocoEvaluator
 from coco_utils import get_coco_api_from_dataset
+from utilities import *
 
 
-def train_one_epoch(model, optimizer, data_loader, device, epoch, print_freq):#, lr_scheduler):
+def train_one_epoch(model, optimizer, data_loader, device, epoch, print_freq=20):
+    """
+    Train model one epoch
+    """
     model.train()
-    metric_logger = utils.MetricLogger(delimiter="  ")
-    metric_logger.add_meter("lr", utils.SmoothedValue(window_size=1, fmt="{value:.6f}"))
+    metric_logger = MetricLogger(delimiter="  ")
+    metric_logger.add_meter("lr", SmoothedValue(window_size=1, fmt="{value:.6f}"))
     header = f"Epoch: [{epoch}]"
 
     lr_scheduler = None
@@ -32,8 +38,8 @@ def train_one_epoch(model, optimizer, data_loader, device, epoch, print_freq):#,
         loss_dict = model(images, targets)
         losses = sum(loss for loss in loss_dict.values())
 
-        # reduce losses over all GPUs for logging purposes
-        loss_dict_reduced = utils.reduce_dict(loss_dict)
+        # Reduce losses over all GPUs for logging purposes
+        loss_dict_reduced = reduce_dict(loss_dict)
         losses_reduced = sum(loss for loss in loss_dict_reduced.values())
 
         loss_value = losses_reduced.item()
@@ -44,21 +50,20 @@ def train_one_epoch(model, optimizer, data_loader, device, epoch, print_freq):#,
             sys.exit(1)
 
         optimizer.zero_grad()
-        # print(type(losses.item()))
-        # print(losses)
-        # print(losses_reduced)
-        # print(loss_dict_reduced) # TODO log loss_dict_reduced
         losses.backward()
         optimizer.step()
-        # wandb.log(data={'Epoch': epoch, 'loss': losses.item()})
+
+        losses_dict = {}
+        for k, v in loss_dict_reduced.items():
+            losses_dict[k] = v.item()
+        losses_dict['total_loss'] = losses_reduced.item()
+        wandb.log(data={'Epoch': epoch, **losses_dict, 'learning_rate': optimizer.param_groups[0]["lr"]})
 
         if lr_scheduler is not None:
             lr_scheduler.step()
 
         metric_logger.update(loss=losses_reduced, **loss_dict_reduced)
         metric_logger.update(lr=optimizer.param_groups[0]["lr"])
-
-    return metric_logger
 
 
 def _get_iou_types(model):
@@ -74,13 +79,15 @@ def _get_iou_types(model):
 
 
 @torch.inference_mode()
-def evaluate(model, data_loader, device):
+def evaluate(model, data_loader, epoch, device):
+    """
+    Evaluate model using coco metrics
+    """
     n_threads = torch.get_num_threads()
-    # FIXME remove this and make paste_masks_in_image run on the GPU
     torch.set_num_threads(1)
     cpu_device = torch.device("cpu")
     model.eval()
-    metric_logger = utils.MetricLogger(delimiter="  ")
+    metric_logger = MetricLogger(delimiter="  ")
     header = "Test:"
 
     coco = get_coco_api_from_dataset(data_loader.dataset)
@@ -97,12 +104,6 @@ def evaluate(model, data_loader, device):
 
         outputs = [{k: v.to(cpu_device) for k, v in t.items()} for t in outputs]
 
-        # TODO take outputs
-        # make mask int by thresholding > 0.5
-        # https://www.kaggle.com/julian3833/sartorius-starter-torch-mask-r-cnn-lb-0-273
-        # https://www.kaggle.com/theoviel/competition-metric-map-iou
-        # log metrics
-
         model_time = time.time() - model_time
 
         res = {target["image_id"].item(): output for target, output in zip(targets, outputs)}
@@ -118,6 +119,6 @@ def evaluate(model, data_loader, device):
 
     # accumulate predictions from all images
     coco_evaluator.accumulate()
-    coco_evaluator.summarize()
+    coco_evaluator.summarize(epoch)
     torch.set_num_threads(n_threads)
     return coco_evaluator

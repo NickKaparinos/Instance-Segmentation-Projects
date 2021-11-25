@@ -1,10 +1,13 @@
-import copy
-import os
+"""
+Instance-Segmentation-Projects
+Nick Kaparinos
+2021
+"""
 
+import copy
 import torch
 import torch.utils.data
 import torchvision
-import transforms as T
 from pycocotools import mask as coco_mask
 from pycocotools.coco import COCO
 
@@ -116,7 +119,7 @@ def _coco_remove_images_without_annotations(dataset, cat_list=None):
         # if all boxes have close to zero area, there is no annotation
         if _has_only_empty_bbox(anno):
             return False
-        # keypoints task have a slight different critera for considering
+        # keypoints task have a slight different criteria for considering
         # if an annotation is valid
         if "keypoints" not in anno[0]:
             return True
@@ -215,35 +218,3 @@ class CocoDetection(torchvision.datasets.CocoDetection):
         if self._transforms is not None:
             img, target = self._transforms(img, target)
         return img, target
-
-
-def get_coco(root, image_set, transforms, mode="instances"):
-    anno_file_template = "{}_{}2017.json"
-    PATHS = {
-        "train": ("train2017", os.path.join("annotations", anno_file_template.format(mode, "train"))),
-        "val": ("val2017", os.path.join("annotations", anno_file_template.format(mode, "val"))),
-        # "train": ("val2017", os.path.join("annotations", anno_file_template.format(mode, "val")))
-    }
-
-    t = [ConvertCocoPolysToMask()]
-
-    if transforms is not None:
-        t.append(transforms)
-    transforms = T.Compose(t)
-
-    img_folder, ann_file = PATHS[image_set]
-    img_folder = os.path.join(root, img_folder)
-    ann_file = os.path.join(root, ann_file)
-
-    dataset = CocoDetection(img_folder, ann_file, transforms=transforms)
-
-    if image_set == "train":
-        dataset = _coco_remove_images_without_annotations(dataset)
-
-    # dataset = torch.utils.data.Subset(dataset, [i for i in range(500)])
-
-    return dataset
-
-
-def get_coco_kp(root, image_set, transforms):
-    return get_coco(root, image_set, transforms, mode="person_keypoints")
