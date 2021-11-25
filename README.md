@@ -11,8 +11,32 @@ Deep Learning methodologies are able to do end-to-end object detection using Con
 ## Pedestrian Instance Segmentation
 
 ### Training and Evaluation Learning Curve
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_learning_curve.jpg" width="49.7%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_validation_metrics.jpg" width="49.7%" />
+</p>
 
 ### Inference examples and comparison to Ground Truth
+
+||||
+|:---:|:---:|:---:|
+| Image &nbsp | Predictions | Ground Truth |
+
+
+
+
+
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Predictions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ground Truth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|:---------------------------:|:---:|:---:|
+
+
+<p float="left">
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_1.jpg" width="33.0%" /> 
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_1_segmentation.jpg" width="33.0%" />
+  <img src="https://github.com/NickKaparinos/Instance-Segmentation-Projects/blob/master/images/Pedestrian_image_1_ground_truth_segmentation.jpg" width="33.0%" />
+</p>
+
+
 
 
 ## Balloon Instance Segmentation
