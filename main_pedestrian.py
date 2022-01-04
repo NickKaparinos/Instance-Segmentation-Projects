@@ -25,9 +25,9 @@ if __name__ == "__main__":
 
     # Dataloaders
     indices = torch.randperm(len(dataset)).tolist()
-    dataset = torch.utils.data.Subset(dataset, indices[:-6])
+    dataset_train = torch.utils.data.Subset(dataset, indices[:-6])
     dataset_test = torch.utils.data.Subset(dataset, indices[-6:])
-    train_dataloader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True, num_workers=2,
+    train_dataloader = torch.utils.data.DataLoader(dataset_train, batch_size=1, shuffle=True, num_workers=2,
                                                    collate_fn=collate_fn)
     test_dataloader = torch.utils.data.DataLoader(dataset_test, batch_size=1, shuffle=False, num_workers=2,
                                                   collate_fn=collate_fn)
